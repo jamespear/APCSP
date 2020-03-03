@@ -1,9 +1,6 @@
-#include <Graphics.h>
+#include <Game.h>
 
 int main(int argc, const char* argv[]) {
-	Graphics graphics;
-	while (true) {
-
-	}
+	Game game;
 	return 0;
 }
