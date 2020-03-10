@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include "Graphics.h"
+#include "Globals.h"
 
 Sprite::Sprite() {}
 
@@ -22,7 +23,7 @@ Sprite::Sprite(Graphics &graphics, const std::string &filePath, int sourceX, int
 Sprite::~Sprite() {}
 
 void Sprite::draw(Graphics &graphics, int x, int y) {
-	SDL_Rect destinationRectangle = {x, y, this -> _sourceRect.w, this -> _sourceRect.h};
+	SDL_Rect destinationRectangle = {x, y, this -> _sourceRect.w * Globals::SPRITE_SCALE, this -> _sourceRect.h * Globals:: SPRITE_SCALE}; // @suppress("Invalid arguments")
 	graphics.blitSurface(this->_spriteSheet, &this->_sourceRect, &destinationRectangle);
 
 }
