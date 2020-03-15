@@ -24,10 +24,25 @@ public:
 
 	SDL_Surface* loadImage(const std::string &filePath);
 
+/*void blitSurface()
+ *render sprites from spritesheet
+ *using SDL_RenderCopy()
+ *\param source sprite sheet
+ *\param sourceRectangle where sprite is on sprite sheet
+ *\param destinationRectangle where to draw sprite on window
+ */
 	void blitSurface(SDL_Texture* source, SDL_Rect* sourceRectangle, SDL_Rect* destinationRectangle);
 
+/*void flip()
+ * updates renderer with drawing
+ * using SDL_RenderPresent()
+ */
 	void flip();
 
+/*void clear
+ * clears renderer
+ * using SDL_RenderClear()
+ */
 	void clear();
 
 	SDL_Renderer* getRenderer() const;

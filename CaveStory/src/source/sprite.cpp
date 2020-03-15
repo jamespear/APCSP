@@ -1,13 +1,11 @@
-#include "Sprite.h"
-#include "Graphics.h"
-#include "Globals.h"
+#include <globals.h>
+#include <graphics.h>
+#include <sprite.h>
 
 Sprite::Sprite() {}
 
 Sprite::Sprite(Graphics &graphics, const std::string &filePath, int sourceX, int sourceY, int width, int height,
-		float posX, float posY) :
-				_x(posX),
-				_y(posY)
+		float posX, float posY)
 {
 	this -> _sourceRect.x = sourceX;
 	this -> _sourceRect.y = sourceY;

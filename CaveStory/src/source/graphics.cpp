@@ -1,7 +1,8 @@
-#include <Graphics.h>
+#include <globals.h>
+#include <graphics.h>
+
 #include "SDL2/SDL.h"
 #include <SDL2/SDL_image.h>
-#include "Globals.h"
 
 Graphics::Graphics() {
 	SDL_CreateWindowAndRenderer(Globals::SCREEN_WIDTH, Globals::SCREEN_HEIGHT, 0, &this ->_window, &this ->_renderer);
@@ -32,6 +33,6 @@ void Graphics::clear() {
 	SDL_RenderClear(this ->_renderer);
 }
 
-SDL_Renderer* Graphics::getRenderer() const {
+SDL_Renderer* Graphics::getRenderer() const{
 	return this->_renderer;
 }
