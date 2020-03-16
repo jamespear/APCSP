@@ -6,7 +6,14 @@ namespace Globals {
 	const int SCREEN_HEIGHT = 480;
 
 	const float SPRITE_SCALE = 2.0;
+};
 
+
+enum Direction {
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN
 };
 
 struct Vector2 {

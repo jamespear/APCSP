@@ -1,17 +1,18 @@
-#include <animatedSprite.h>
+#include <animatedsprite.h>
 #include <graphics.h>
 #include <sprite.h>
 
-AnimatedSprite::AnimatedSprite() {}
+AnimatedSprite::AnimatedSprite() {} // @suppress("Class members should be properly initialized")
 
-AnimatedSprite::AnimatedSprite(Graphics &graphics, const std::string &filePath,
+AnimatedSprite::AnimatedSprite(Graphics &graphics, const std::string &filePath, // @suppress("Class members should be properly initialized")
 		int sourceX, int sourceY, int width, int height, float posX, float posY, float timeToUpdate) :
 				Sprite(graphics, filePath, sourceX, sourceY, width, height, posX, posY),
 				_frameIndex(0),
 				_timeToUpdate(timeToUpdate),
-				_visible(true),
+				  _visible(true),
 				_currentAnimationOnce(false),
-				_currentAnimation("") {}
+				_currentAnimation("")
+				 {}
 
 void AnimatedSprite::addAnimation(int frames, int x, int y, std::string name, int width, int height, Vector2 offset) {
 	std::vector<SDL_Rect> rectangles;
@@ -47,10 +48,8 @@ void AnimatedSprite::stopAnimation() {
 }
 
 void AnimatedSprite::update(int elapsedTime) {
-	Sprite::update();
-
 	this->_timeElapsed += elapsedTime;
-	if (this->_timeElapsed >= this->_timeToUpdate) {
+	if (this->_timeElapsed > this->_timeToUpdate) {
 		this->_timeElapsed -= this->_timeToUpdate;
 		if(this->_frameIndex < this->_animations[this->_currentAnimation].size() - 1) this ->_frameIndex++;
 		else {
@@ -72,14 +71,4 @@ void AnimatedSprite::draw(Graphics &graphics, int x, int y) {
 		SDL_Rect sourceRect = this ->_animations[this ->_currentAnimation][this->_frameIndex];
 		graphics.blitSurface(this->_spriteSheet, &sourceRect, &destinationRectangle);
 	}
-}
-
-void AnimatedSprite::animationDone(std::string currentAnimation) {
-
-}
-
-void AnimatedSprite::setupAnimations() {
-	this ->addAnimation(3, 0, 0, "RunLeft", 16, 16, Vector2(0,0));
-	this ->addAnimation(3, 0, 16, "RunRight", 16, 16, Vector2(0,0));
-
 }

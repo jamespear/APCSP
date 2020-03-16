@@ -21,10 +21,12 @@ class Graphics {
 public:
 	Graphics();
 	~Graphics();
-
+/*SDL_Surface* loadImage
+ * re
+ */
 	SDL_Surface* loadImage(const std::string &filePath);
 
-/*void blitSurface()
+/*void blitSurface
  *render sprites from spritesheet
  *using SDL_RenderCopy()
  *\param source sprite sheet
@@ -33,7 +35,7 @@ public:
  */
 	void blitSurface(SDL_Texture* source, SDL_Rect* sourceRectangle, SDL_Rect* destinationRectangle);
 
-/*void flip()
+/*void flip
  * updates renderer with drawing
  * using SDL_RenderPresent()
  */

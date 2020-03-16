@@ -5,7 +5,7 @@
 
 #include <string>
 
-class Graphics;
+class Graphics;  //forward declaration of Graphics class
 
 class Sprite{
 public:
@@ -13,14 +13,13 @@ public:
 	Sprite(Graphics &graphics, const std::string &filePath, int sourceX, int sourceY, int width, int height,
 		float posX, float posY);
 	virtual ~Sprite();
-	virtual void update();
+	void update(); //overwrites update in AnimatedSprite
 	void draw(Graphics &graphics, int x, int y);
-
-protected:
+protected: //protected because implemented in animatedSprite
 	SDL_Rect _sourceRect;
 	SDL_Texture* _spriteSheet;
-private:
 
+	float _x, _y;
 };
 
 
